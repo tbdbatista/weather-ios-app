@@ -26,7 +26,8 @@ This app was created by Thiago Batista using the OpenWeatherMap API, as part of 
 ## Result
 
 <div style="display:flex;">
-  <img src="./images/weather1.png" alt="Loading while fetching data" height="800"/>
-  <img src="./images/weather2.png" alt="Weather data from given location" height="800"/>
-  <img src="./images/weather-not-found.png" alt="Weather data from given location" height="800"/>
+  <img src="./images/weather1.png" alt="Weather data from given location" height="800"/>
+  <img src="./images/weather2.png" alt="Weather data from gps location" height="800"/>
+  <img src="./images/weather3.png" alt="Weather data from given location" height="800"/>
+  <img src="./images/weather-not-found.png" alt="Weather data not found" height="800"/>
 </div>

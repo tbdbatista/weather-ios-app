@@ -23,3 +23,10 @@ swift
 ## Credits
 This app was created by Thiago Batista using the OpenWeatherMap API, as part of Angela Yu's Udemy bootcamp.
 
+## Result
+## Result
+
+<div style="display:flex;">
+  <img src="./images/loading.png" alt="Loading while fetching data" height="800"/>
+  <img src="./images/weather.png" alt="Weather data from given location" height="800"/>
+</div>

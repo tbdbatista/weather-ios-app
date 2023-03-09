@@ -8,20 +8,25 @@
 import Foundation
 import CoreLocation
 
-protocol WeatherManagerDelegate{
+protocol WeatherManagerDelegate: AnyObject{
     func didUpdateWeather(weather: WeatherModel)
     func didFailWithError(error: Error)
 }
 
 
 struct WeatherManager{
-    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=d00a54025688dbbb4f530d96b1045280"
+    private let API_KEY = ""
+    private let weatherURL: String
     
-    var delegate: WeatherManagerDelegate?
+    init() {
+        self.weatherURL = "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=\(API_KEY)"
+    }
+    
+    weak var delegate: WeatherManagerDelegate?
     
     func fetchWeather(cityName: String){
-        let formatedCityName = cityName.formatCityName()
-        let urlString = "\(weatherURL)&q=\(formatedCityName)"
+        let formattedCityName = cityName.formatCityName()
+        let urlString = "\(weatherURL)&q=\(formattedCityName)"
         self.performRequest(urlString: urlString)
     }
     
@@ -33,7 +38,6 @@ struct WeatherManager{
     func performRequest(urlString: String) {
         
         //Passo 1 - criar a URL()
-        
         if let url = URL(string: urlString){
             
             //Passo 2 - criar uma sessão (semelhante ao que seria o navegador ao comunicar com o API)
@@ -77,10 +81,8 @@ struct WeatherManager{
             
         } catch {
             delegate?.didFailWithError(error: error)
-            
             return nil
         }
-        
     }
 }
 
